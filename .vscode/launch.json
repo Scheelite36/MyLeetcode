@@ -9,6 +9,13 @@
             "name": "Launch So",
             "request": "launch",
             "mainClass": "So",
+            "projectName": ".leetcode_c69e4f62"
+        },
+        {
+            "type": "java",
+            "name": "Launch So",
+            "request": "launch",
+            "mainClass": "So",
             "projectName": ".leetcode_f6e66e12"
         },
         {
