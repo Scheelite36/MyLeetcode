@@ -5,6 +5,7 @@ public class Test {
         String s="aAa";
         s.toLowerCase();
         System.out.println(s);
-        System.out.println(1<'a');         
+        System.out.println(1<'a');
+        System.out.println('-'==45);         
     }
 }
