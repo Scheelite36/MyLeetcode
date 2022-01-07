@@ -5,32 +5,36 @@
  */
 
 // @lc code=start
-class Solution {
-    public int myAtoi(String s) {
-        StringBuilder sb = new StringBuilder();
-        boolean flag = false;
-        boolean n_flag = false;
-        for (char c : s.toCharArray()) {
-            if(!(c>=48 && c<=57)){
-                if(c==45&&flag==false){
-                    sb.append(c);
-                    flag=true;
-                    n_flag=true;
-                    continue;
-                }else if(c==32&&n_flag==false){
+class Solutio {
+    public static int myAtoi(String s) {
+        // StringBuilder sb = new StringBuilder();
+        long flag = 1l;
+        boolean space_flag = true;
+        long r = 0l;
+        for(char c :s.toCharArray()){
+            if(!(c>=48&&c<=57)){
+                if(c==45&&flag!=-1){
+                    flag = -1;
+                    space_flag = false;
                     continue;
                 }
+                if(c==32&& space_flag==true){
+                    continue;
+                }
+                space_flag = false;
                 break;
             }
-            n_flag=true;
-            sb.append(c);
+            if((r*10+(int)(c-48))>Integer.MAX_VALUE && flag == 1){
+                return (int)(r*flag);
+            }
+            r = r*10+(int)(c-48);
         }
-        try {
-            return Integer.parseInt(sb.toString());
-        } catch (Exception e) {
-            //TODO: handle exception
-            return 0;
-        }
+        return (int)(r*flag);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new Solutio().myAtoi("      -2147483647"));
+        System.out.println(Integer.MAX_VALUE);
     }
 }
 // @lc code=end
