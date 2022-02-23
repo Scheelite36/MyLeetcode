@@ -17,21 +17,40 @@
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        ListNode temp = null;
-        ListNode h = head;
-        while(head != null){
-            ListNode node = new ListNode(head.val,temp);
-            head = head.next;
-            temp = node;
+        //快慢指针 找到中间
+        ListNode fast=head, slow=head;
+        while(fast!=null && fast.next!=null){
+            fast = fast.next.next;
+            slow = slow.next;
         }
-        while(h.next != null){
-            if(h.val != temp.val){
+        // fast为null成立，说明是奇数个
+        if(fast!=null){
+            slow = slow.next;
+        }
+        // 反转数组
+        slow = reverse(slow);
+
+        while(slow != null){
+            // 比较节点的值
+            if(slow.val!=head.val){
                 return false;
             }
-            h = h.next;
-            temp =temp.next;
+            slow = slow.next;
+            head= head.next;
         }
         return true;
+    }
+
+    public ListNode reverse(ListNode head){
+        // 建议多看 多理解
+        ListNode prev = null;
+        while(head != null){
+            ListNode next = head.next;
+            head.next = prev;
+            prev = head;
+            head = next;
+        }
+        return prev;
     }
 }
 // @lc code=end
