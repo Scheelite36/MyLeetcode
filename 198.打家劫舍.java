@@ -7,21 +7,24 @@
 // @lc code=start
 class Solution {
     public int rob(int[] nums) {
+        // still dp array。after analyze the array usage, fixed the array to len of 4
         int len = nums.length;
-        if(len==1){
+        if (len == 1) {
             return nums[0];
-        }else if(len==2){
-            return Math.max(nums[0], nums[1]);
+        } else if (len == 2) {
+            return nums[0] > nums[1] ? nums[0] : nums[1];
         }
-        int[] dp = new int[len];
+        int[] dp = new int[4];
         dp[0] = nums[0];
         dp[1] = nums[1];
-        dp[2] = nums[2]+nums[0];
-        for(int i=3;i<len;i++){
-            dp[i] = Math.max(dp[i-3]+nums[i],dp[i-2]+nums[i]);
+        dp[2] = nums[2] + nums[0];
+        for (int i = 3; i < len; i++) {
+            dp[3] = (dp[0] + nums[i]) > (dp[1] + nums[i]) ? dp[0] + nums[i] : dp[1] + nums[i];
+            dp[0] = dp[1];
+            dp[1] = dp[2];
+            dp[2] = dp[3];
         }
-        return Math.max(dp[len-1], dp[len-2]);
+        return dp[1] > dp[2] ? dp[1] : dp[2];
     }
 }
 // @lc code=end
-
