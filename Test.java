@@ -1,29 +1,18 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 public class Test {
-    public int removeDuplicates(int[] nums) {
-        if (nums.length <= 1){
-            return nums.length;
-        }
-        int left = 0;
-        int right = 1;
-        while(right<nums.length){
-            if (nums[left] != nums[right]){
-                if(right-left == 1){
-                    right++;
-                    left++;
-                }else{
-                    nums[++left]=nums[right++];
-                }
-            }else{
-                right++;
-            }
-        }
-        return left;
-    }
     public static void main(String[] args) {
-        Test t = new Test();
-        int[] nums = new int[]{1,1,2};
-        System.out.println(t.removeDuplicates(nums));
+        Set<List<Integer>> sets = new HashSet<>();
+        sets.add(Arrays.asList(1,2));
+        System.out.println(sets.add(Arrays.asList(1,2)));
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        System.out.println(sets.add(list));
     }
 }

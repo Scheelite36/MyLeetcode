@@ -34,6 +34,14 @@ class Solution {
         }
         return res;
     }
+
+    /**
+     * 回溯
+     * @param start 回溯开始位置
+     * @param k 子集长度
+     * @param cur 子集
+     * @param nums
+     */
     public void traceBack(int start, int k, List<Integer> cur, int[] nums){
         if (k == 0){
             res.add(new ArrayList<>(cur));
