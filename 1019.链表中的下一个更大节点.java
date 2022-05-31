@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.LinkedList;
-import java.util.Stack;
-=======
 import java.util.ArrayList;
 import java.util.List;
->>>>>>> 04061786c6384e08093b2c1e8776ae79cf80b77c
 
 /*
  * @lc app=leetcode.cn id=1019 lang=java
@@ -26,7 +21,6 @@ import java.util.List;
  * }
  */
 class Solution {
-<<<<<<< HEAD
     
     int count = 0;
 
@@ -55,32 +49,32 @@ class Solution {
         head.next.next = head;
         head.next = null;
         return p;
-=======
-    public int[] nextLargerNodes(ListNode head) {
-        ListNode cur = head, next = head.next;
-        List<Integer> indexList = new ArrayList<>();
-        while(cur.next != null){
-            if (next == null){
-                indexList.add(0);
-                cur = cur.next;
-                next = cur.next;
-                continue;
-            }
-            if (next.val > cur.val){
-                indexList.add(next.val);
-                cur = cur.next;
-                next = cur.next;
-            }else{
-                next = next.next;
-            }
-        }
-        indexList.add(0);
-        int[] res = new int[indexList.size()];
-        for (int i=0; i < indexList.size(); i++){
-            res[i] = indexList.get(i);
-        }
-        return res;
->>>>>>> 04061786c6384e08093b2c1e8776ae79cf80b77c
+
+        // two point
+    // public int[] nextLargerNodes(ListNode head) {
+    //     ListNode cur = head, next = head.next;
+    //     List<Integer> indexList = new ArrayList<>();
+    //     while(cur.next != null){
+    //         if (next == null){
+    //             indexList.add(0);
+    //             cur = cur.next;
+    //             next = cur.next;
+    //             continue;
+    //         }
+    //         if (next.val > cur.val){
+    //             indexList.add(next.val);
+    //             cur = cur.next;
+    //             next = cur.next;
+    //         }else{
+    //             next = next.next;
+    //         }
+    //     }
+    //     indexList.add(0);
+    //     int[] res = new int[indexList.size()];
+    //     for (int i=0; i < indexList.size(); i++){
+    //         res[i] = indexList.get(i);
+    //     }
+    //     return res;
     }
 }
 // @lc code=end
