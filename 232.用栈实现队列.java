@@ -17,31 +17,29 @@ class MyQueue {
     }
     
     public void push(int x) {
-        if (orderdStack.isEmpty()){
-            orderdStack.push(x);
-        }else{
-            reverseStack.push(x);
-        }
+        reverseStack.push(x);
     }
     
     public int pop() {
-        if (!orderdStack.isEmpty()){
-            orderdStack.pop();
-        }else {
-            if (reverseStack.isEmpty()){
-                return null
-            }else {
-                
-            }
-        }
+        arrange();
+        return orderdStack.pop();
     }
     
     public int peek() {
+        arrange();
         return orderdStack.peek();
     }
     
     public boolean empty() {
         return orderdStack.isEmpty() && reverseStack.isEmpty();
+    }
+
+    public void arrange() {
+        if (orderdStack.isEmpty()) {
+            while (!reverseStack.isEmpty()) {
+                orderdStack.push(reverseStack.pop());
+            }
+        }
     }
 }
 
