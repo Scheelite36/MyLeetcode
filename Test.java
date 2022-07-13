@@ -1,39 +1,48 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.StringJoiner;
 import java.util.regex.Pattern;
 
 public class Test {
 
-    public static int[] intersect(int[] nums1, int[] nums2) {
-        Map<Integer,Integer> map = new HashMap<>();
-        List<Integer> res = new ArrayList<>();
-        for (int n : nums1){
-            if (!map.containsKey(n)){
-                map.put(n,1);
-            }else{
-                map.put(n, map.get(n)+1);
+    static int[][] direct = new int[][]{{0,1},{0,-1},{-1,0},{1,0}};
+    static int count = 1;
+    public static int movingCount(int m, int n, int k) {
+        boolean[][] visited= new boolean[m][n];
+        trackBack(0, 0, m, n, k, visited);
+        return count;
+    }
+    public static void trackBack(int x, int y, int m, int n, int k, boolean[][] visited){
+        visited[x][y] = true;
+        for (int[] d : direct) {
+            int newx = x + d[0]; int newy = y + d[1];
+            int sum = bitSum(newx, newy);
+            if (newx< m && newx > -1 && newy > -1 && newy < n && sum <= k && !visited[newx][newy]){
+                count++;
+                trackBack(newx, newy, m, n, k, visited);
             }
         }
-        for (int n: nums2){
-            if (map.containsKey(n) && map.get(n) > 0){
-                map.put(n, map.get(n)-1);
-                res.add(n);
-            }
+    }
+
+    public static int bitSum(int x, int y){
+        int sum = 0;
+        while( x%10 != 0 || y%10 != 0 ){
+            sum += (x % 10 + y % 10);
+            x /= 10; y /= 10;
         }
-        int[] ress = new int[res.size()];
-        for (int i=0; i<res.size(); i++){
-            ress[i] = res.get(i);
-        }
-        return ress;
+        return sum;
     }
 
     public static void main(String[] args) {
-        intersect(new int[]{1,2,3},new int[]{2,2,3});
-
+        movingCount(3, 1, 1);
+        System.out.println(count);
     }
+
 }
