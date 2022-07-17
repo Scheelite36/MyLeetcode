@@ -1,3 +1,4 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Deque;
@@ -7,7 +8,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Stack;
 import java.util.StringJoiner;
+import java.util.Vector;
 import java.util.regex.Pattern;
 
 public class Test {
@@ -41,8 +44,14 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        movingCount(3, 1, 1);
-        System.out.println(count);
+        Vector<Integer> s = new Stack<>();
+        s.add(1);
+        s.add(2);
+        System.out.println(s.firstElement());
+        Deque<Integer> q = new ArrayDeque<>();
+        q.add(1);
+        q.add(2);
+        System.out.println(q.peek());
     }
 
 }

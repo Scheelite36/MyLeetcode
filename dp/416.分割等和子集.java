@@ -16,9 +16,6 @@ package dp;
 输出：false
 解释：数组不能分割成两个元素和相等的子集。
 
-来源：力扣（LeetCode）
-链接：https://leetcode.cn/problems/partition-equal-subset-sum
-著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * 
  */
 
