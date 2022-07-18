@@ -1,0 +1,73 @@
+{"code":200,
+    "msg": null,
+    "data": {
+        "systemNo": "test",
+        "type": "test03_1",
+        "serialNo": "1234",
+        "overallResult": 0,
+        "resultData": [
+            {
+                "sensorId": "sensor01",
+                "dataSection": [
+                    {
+                        "testName": "test1",
+                        "onedData": [
+                            {
+                                "name": "SPL",
+                                "value": 0.01
+                            },
+                            {
+                                "name": "RMS",
+                                "value": 0.02
+                            }
+                        ]
+                    },
+                    {
+                        "testName": "test2",
+                        "onedData": [
+                            {
+                                "name": "SPL",
+                                "value": 0.01
+                            },
+                            {
+                                "name": "RMS",
+                                "value": 0.02
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "sensorId": "sensor02",
+                "data": [
+                    {
+                        "testName": "test1",
+                        "onedData": [
+                            {
+                                "name": "SPL",
+                                "value": 0.01
+                            },
+                            {
+                                "name": "RMS",
+                                "value": 0.02
+                            }
+                        ]
+                    },
+                    {
+                        "testName": "test2",
+                        "onedData": [
+                            {
+                                "name": "SPL",
+                                "value": 0.01
+                            },
+                            {
+                                "name": "RMS",
+                                "value": 0.02
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
