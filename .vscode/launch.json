@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Main4",
+            "request": "launch",
+            "mainClass": "stack.Main4",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
             "name": "Launch Main3",
             "request": "launch",
             "mainClass": "trackBack.Main3",
