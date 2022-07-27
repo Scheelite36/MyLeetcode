@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch 火车进站",
+            "request": "launch",
+            "mainClass": "stack.火车进站",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch 矩阵乘法计算量估算",
+            "request": "launch",
+            "mainClass": "stack.矩阵乘法计算量估算",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch Mian6",
+            "request": "launch",
+            "mainClass": "trackBack.Mian6",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
             "name": "Launch Mian6",
             "request": "launch",
             "mainClass": "trackBack.Mian6",

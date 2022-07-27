@@ -33,26 +33,27 @@ class Mian6 {
         boolean[] isVisited = new boolean[4];
         for (int l=0;l<4;l++){
             isVisited[l] = true;
-            traceBack(nums, isVisited, nums[l]);
+            traceBack(nums, isVisited, (double)nums[l]);
             isVisited[l] = false;
         }
         if (!res){
             System.out.println("false");
+        }else {
+            System.out.println("true");
         }
         
     }
 
-    public static void traceBack(int[] nums, boolean[] isVisited, int now){
-        if (now == 24){
+    public static void traceBack(int[] nums, boolean[] isVisited, Double now){
+        if (now == 24.0d){
             res = true;
-            System.out.println("true");
             return;
         }
         for (int i=0; i<4;i++){
             if (!isVisited[i]){
                 isVisited[i] = true;
                 for (char c : op){
-                    traceBack(nums, isVisited, cal(now, nums[i], c));
+                    traceBack(nums, isVisited, cal(now, (double)nums[i], c));
                 }
                 isVisited[i] = false;
             }
@@ -60,7 +61,7 @@ class Mian6 {
         return;
     }
     
-    public static int cal(int i, int j, char c){
+    public static Double cal(Double i, Double j, char c){
         switch(c){
             case '*':
                 return i*j;
@@ -71,7 +72,7 @@ class Mian6 {
             case '-':
                 return i-j;
             default:
-                return 0;
+                return 0d;
         }
     }
 }

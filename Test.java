@@ -44,14 +44,9 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        Vector<Integer> s = new Stack<>();
-        s.add(1);
-        s.add(2);
-        System.out.println(s.firstElement());
-        Deque<Integer> q = new ArrayDeque<>();
-        q.add(1);
-        q.add(2);
-        System.out.println(q.peek());
+        String a = null;
+        System.out.println(a.equals(null));
+        
     }
 
 }
