@@ -1,3 +1,5 @@
+package trees;
+
 /**
  * 输入两棵二叉树A和B，判断B是不是A的子结构。(约定空树不是任意一个树的子结构)
  * 
@@ -34,6 +36,19 @@
 
 class Solution {
     public boolean isSubStructure(TreeNode A, TreeNode B) {
-        
+        // 找B根节点位置 如果其中一个null 都算没找到
+        if (A == null || B == null)
+            return false;
+        // 假设 A 等于 B成立
+        // 假设 A.left 等于B 满足一个即可
+        return recus(A, B) || isSubStructure(A.left, B) || isSubStructure(A.right, B);
+    }
+
+    public boolean recus(TreeNode A, TreeNode B) {
+        if (B == null)
+            return true;
+        if (A == null || A.val != B.val)
+            return false;
+        return recus(A.left, B.left) && recus(A.right, B.right);
     }
 }

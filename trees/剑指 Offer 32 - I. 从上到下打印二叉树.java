@@ -1,7 +1,8 @@
+package trees;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 /**
  * 从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。

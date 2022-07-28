@@ -1,3 +1,5 @@
+package trees;
+
 /*
  * @lc app=leetcode.cn id=98 lang=java
  *

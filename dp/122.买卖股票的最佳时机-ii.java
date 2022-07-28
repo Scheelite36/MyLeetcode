@@ -1,4 +1,4 @@
-
+package dp;
 /*
  * @lc app=leetcode.cn id=122 lang=java
  *
@@ -10,15 +10,19 @@ class Solution {
     public int maxProfit(int[] prices) {
         int maxProfit = 0;
         int minPrice = prices[0];
-        for (int price : prices){
-            if (price - minPrice > 0){
-                maxProfit += price-minPrice;
+        for (int price : prices) {
+            if (price - minPrice > 0) {
+                maxProfit += price - minPrice;
                 minPrice = price;
             }
-            minPrice = Integer.min(price,minPrice);
+            minPrice = Integer.min(price, minPrice);
         }
         return maxProfit;
     }
 }
-// @lc code=end
 
+class Solution2 {
+    // todo
+    
+}
+// @lc code=end
