@@ -28,6 +28,21 @@ package search;
 
 class Solution {
     public boolean findNumberIn2DArray(int[][] matrix, int target) {
-        
+        if (matrix == null || matrix.length ==0 || matrix[0].length == 0){
+            return false;
+        }
+        int maxRow = matrix.length, row = 0;
+        int colum = matrix[0].length;
+        while(row < maxRow && colum > 0){
+            int m = matrix[row][colum];
+            if (m == target) {
+                return true;
+            }if (m < target){
+                colum--;
+            }else {
+                row++;
+            }
+        } 
+        return false;
     }
 }
