@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Solution11",
+            "request": "launch",
+            "mainClass": "slidingWindow.Solution11",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solution3",
+            "request": "launch",
+            "mainClass": "slidingWindow.Solution3",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solution2",
+            "request": "launch",
+            "mainClass": "slidingWindow.Solution2",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
             "name": "Launch 火车进站",
             "request": "launch",
             "mainClass": "stack.火车进站",

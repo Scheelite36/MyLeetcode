@@ -45,7 +45,8 @@ public class Test {
 
     public static void main(String[] args) {
         String a = null;
-        System.out.println(a.equals(null));
+        System.out.println(-1/3);
+        System.out.println(-5/3);
         
     }
 
