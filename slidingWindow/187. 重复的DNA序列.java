@@ -1,8 +1,10 @@
 package slidingWindow;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -26,7 +28,7 @@ import java.util.Set;
  */
 
 class Solution {
-    // hash
+    // hash +滑动窗口
     public List<String> findRepeatedDnaSequences(String s) {
         if (s.length() < 10)
             return new ArrayList<>();
@@ -43,9 +45,35 @@ class Solution {
 }
 
 class Solution2 {
-    // todo 滑动窗口
+    private int l = 10;
+    private Map<Character, Integer> alpha = new HashMap<>(){{
+        put('A',0);
+        put('C',1);
+        put('G',2);
+        put('T',3);
+    }};
+    // 滑动窗口+ hash +位运算
     public List<String> findRepeatedDnaSequences(String s) {
-        
+        List<String> res = new ArrayList<>();
+        int n = s.length();
+        if (n < l){
+            return res;
+        }
+        int x = 0;
+        // 取到前9个数
+        for (int i=0; i<l-1; i++){
+            x = (x << 2)|alpha.get(s.charAt(i)); 
+        }
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i=0; i <= n-l;i++){
+            // 添加最后一位，并删除最前面的
+            x = ((x << 2) | alpha.get(s.charAt(i+l-1))) & ((1 << (2*l)) - 1);
+            map.put(x, map.getOrDefault(x, 0)+1);
+            if (map.get(x) == 2){
+                res.add(s.substring(i, i+l));
+            }
+        }
+        return res;
     }
 
 }
