@@ -1,6 +1,7 @@
 package slidingWindow;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,7 +44,7 @@ class Solution438 {
         for (int i = 0; i < lp; i++) {
             Character c = p.charAt(i);
             map.put(c, map.getOrDefault(c, 0) - 1);
-            if (map.get(c) == 0){
+            if (map.get(c) == 0) {
                 map.remove(c);
             }
         }
@@ -51,17 +52,17 @@ class Solution438 {
             if (i != lp - 1) {
                 Character left = s.charAt(i);
                 map.put(left, map.getOrDefault(left, 0) + 1);
-                if (map.get(left) == 0){
+                if (map.get(left) == 0) {
                     map.remove(left);
                 }
-                Character right = s.charAt(i-lp);
-                map.put(right, map.getOrDefault(right, 0) -1);
-                if (map.get(right) == 0){
+                Character right = s.charAt(i - lp);
+                map.put(right, map.getOrDefault(right, 0) - 1);
+                if (map.get(right) == 0) {
                     map.remove(right);
                 }
             }
             if (map.isEmpty()) {
-                res.add(i-lp+1);
+                res.add(i - lp + 1);
             }
         }
         return res;
@@ -72,6 +73,30 @@ class Solution438_1 {
     // 滑动窗口
     public List<Integer> findAnagrams(String s, String p) {
         // 用数组保存字符计数
-        // 用变量表示s与p不同的个数
+        List<Integer> res = new ArrayList<>();
+        int ls = s.length(), lp = p.length();
+        if (ls < lp) {
+            return res;
+        }
+        int[] arr1 = new int[26];
+        int[] arr2 = new int[26];
+        // 初始化滑动窗口
+        for (int i=0;i<lp;i++){
+            arr1[s.charAt(i)-'a']++;
+            arr2[p.charAt(i)-'a']++;
+        }
+        if (Arrays.equals(arr1, arr2))
+            res.add(0);
+        for (int i=lp;i<ls;i++){
+            arr1[s.charAt(i)-'a']++;
+            arr1[s.charAt(i-lp)-'a']--;
+            if (Arrays.equals(arr1, arr2))
+                res.add(i-lp+1);
+        }
+        return res;
+    }
+    public static void main(String[] args) {
+        Solution438_1 s = new Solution438_1();
+        s.findAnagrams("baa","aa");
     }
 }
