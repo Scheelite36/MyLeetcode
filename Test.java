@@ -44,10 +44,12 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        String a = null;
-        System.out.println(-1/3);
-        System.out.println(-5/3);
-        
+        List<double[]> list = new ArrayList<>();
+        list.add(new double[]{0d,1d});
+        list.add(new double[]{0d,3d});
+        double[] d = list.get(0);
+        d[1] = 4d;
+        return;
     }
 
 }
