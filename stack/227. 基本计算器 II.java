@@ -1,7 +1,9 @@
 package stack;
 
 import java.util.Deque;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 /**
  * 给你一个字符串表达式 s ，请你实现一个基本计算器来计算并返回它的值。
@@ -24,42 +26,47 @@ import java.util.LinkedList;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 class Solution227 {
-    static String ops = "+-*/";
+    Map<Character,Integer> map = new HashMap<>(){{
+        put('+', 1);
+        put('-', 1);
+        put('*', 2);
+        put('/', 2);
+    }};
     public int calculate(String s) {
         Deque<Integer> num = new LinkedList<>();
         Deque<Character> op = new LinkedList<>();
-        s = s.trim();
+        s =s.replace(" ", "");
         for (int i=0; i<s.length();i++){
-            if (s.charAt(i)==' '){
-                continue;
+            if (Character.isDigit(s.charAt(i))){
+                int start = i;
+                while (i+1 < s.length() && Character.isDigit(s.charAt(i+1))){
+                    ++i;
+                }
+                num.push(Integer.valueOf(s.substring(start, i+1)));
+            }else {
+                // 当栈内运算符优先级和当前同级或者比当前高 就进行循环运算
+                while (!op.isEmpty() && map.get(op.peek()) >= map.get(s.charAt(i))){
+                    cal(num, op);
+                }
+                op.push(s.charAt(i));
             }
-            // 符号
-            if (!Character.isDigit(s.charAt(i))){
-                char c = s.charAt(i);
-                int left = getDigitIndex(s, ++i);
-                num.push(Integer.valueOf(s.substring(i, left)));
-                cal(num, op, c);
-                i = left;
-            }else{
-                num.push(Integer.valueOf(s.substring(i,getDigitIndex(s, i))));
-            }
-            
         }
+        // 将剩下的计算完成
+        while(!op.isEmpty()) cal(num,op);
         return num.peek();
     }
+
     public int getDigitIndex(String s, int i){
         while(Character.isDigit(s.charAt(i)) || s.charAt(i)==' '){
             ++i;
         }
         return i;
     }
-    public void cal(Deque<Integer> num, Deque<Character> op, char c){
-        if ( ops.indexOf(op.peek()) < 2){
-            if (ops.indexOf(c) > 1){
-                num.push(op(num.pop(), num.pop(), c));
-            }
-        }
-        num.push(op(num.pop(),num.pop(), op.pop()));
+
+    public void cal(Deque<Integer> num, Deque<Character> op){
+        int b = num.pop();
+        int a = num.pop();
+        num.push(op(a,b,op.pop()));
     }
 
     public int op(int a, int b, char c){
@@ -75,5 +82,9 @@ class Solution227 {
             default:
                 return 0;
         }
+    }
+    public static void main(String[] args) {
+        Solution227 s = new Solution227();
+        s.calculate("1*2-3/4+5*6-7*8+9/10");
     }
 }
