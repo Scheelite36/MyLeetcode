@@ -8,6 +8,13 @@
             "type": "java",
             "name": "Launch Solution395",
             "request": "launch",
+            "mainClass": "divideAndConquer.Solution395",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solution395",
+            "request": "launch",
             "mainClass": "slidingWindow.Solution395",
             "projectName": ".leetcode_c69e4f62"
         },
