@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch quickSortTemp",
+            "request": "launch",
+            "mainClass": "sort.quickSortTemp",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
             "name": "Launch Solution395",
             "request": "launch",
             "mainClass": "divideAndConquer.Solution395",
