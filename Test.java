@@ -1,43 +1,16 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import sort.mergeSortTemp;
+import sort.quickSortTemp;
+
 public class Test {
 
-    static int[][] direct = new int[][]{{0,1},{0,-1},{-1,0},{1,0}};
-    static int count = 1;
-    public static int movingCount(int m, int n, int k) {
-        boolean[][] visited= new boolean[m][n];
-        trackBack(0, 0, m, n, k, visited);
-        return count;
-    }
-    public static void trackBack(int x, int y, int m, int n, int k, boolean[][] visited){
-        visited[x][y] = true;
-        for (int[] d : direct) {
-            int newx = x + d[0]; int newy = y + d[1];
-            int sum = bitSum(newx, newy);
-            if (newx< m && newx > -1 && newy > -1 && newy < n && sum <= k && !visited[newx][newy]){
-                count++;
-                trackBack(newx, newy, m, n, k, visited);
-            }
-        }
-    }
-
-    public static int bitSum(int x, int y){
-        int sum = 0;
-        while( x%10 != 0 || y%10 != 0 ){
-            sum += (x % 10 + y % 10);
-            x /= 10; y /= 10;
-        }
-        return sum;
-    }
-
     public static void main(String[] args) {
-        List<double[]> list = new ArrayList<>();
-        list.add(new double[]{0d,1d});
-        list.add(new double[]{0d,3d});
-        double[] d = list.get(0);
-        d[1] = 4d;
-        return;
+        mergeSortTemp qt = new mergeSortTemp();
+        int[] q = new int[] { 1, 3, 4, 3, 2, 2, 5, 3, 5 };
+        qt.mergeSort(q, 0, q.length - 1);
+        System.out.println(q);
     }
 
 }

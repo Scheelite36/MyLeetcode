@@ -1,12 +1,6 @@
 package sort;
 
 public class quickSortTemp {
-    public static void main(String[] args) {
-        quickSortTemp qt = new quickSortTemp();
-        int[] q = new int[] { 1, 3, 4, 3, 2, 2, 5, 3, 5 };
-        qt.quickSort(q, 0, q.length - 1);
-        System.out.println(q);
-    }
 
     public void quickSort(int[] q, int l, int r) {
         if (l >= r)
