@@ -24,5 +24,14 @@ public class Solution {
         // 3. see source code. generate from func 2
         return Integer.bitCount(n);
     }
+
+    public int hammingWeight2(int n){
+        int count = 0;
+        while( (n & -n) != 0){
+            n -= n & -n;
+            count++;
+        }
+        return count;
+    }
 }
 // @lc code=end
