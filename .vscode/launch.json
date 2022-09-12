@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch AcWing826",
+            "request": "launch",
+            "mainClass": "linkedList.AcWing826",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solution763",
+            "request": "launch",
+            "mainClass": "Solution763",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
             "name": "Launch Solution1143",
             "request": "launch",
             "mainClass": "dp.Solution1143",
