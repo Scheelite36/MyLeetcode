@@ -60,44 +60,24 @@ class AcWing827 {
     static int[] e = new int[10000];
     static int[] l = new int[10000];
     static int[] r = new int[10000];
-    static int idx;
-    static int head;
-    static int tail;
+    static int idx = 2; // 保留头两个作为头尾，所以从2开始使用
+    static {
+        r[0] = 1;
+        l[1] = 0;
+    }
 
     static void add(int k, int x){
         e[idx] = x;
-        l[r[idx]] = idx;
+        l[r[k]] = idx;
         r[idx] = r[k];
         r[k] = idx;
         l[idx] = k;
         idx++;
     }
 
-    static void addHead(int x){
-        e[idx] = x;
-        r[idx] = head;
-        l[head] = idx;
-        head = idx;
-        idx++;
-    }
-
-    static void addTail(int x){
-        e[idx] = x;
-        l[idx] = tail;
-        r[tail] = idx;
-        tail = idx;
-        idx++;
-    }
-
     static void remove(int k){
-        if (k==head){
-            head = r[k];
-        } else if(k==tail){
-            tail = l[k];
-        }else {
-            l[r[k]] = l[k];
-            r[l[k]] = r[k];
-        }
+        l[r[k]] = l[k];
+        r[l[k]] = r[k];
     }
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -105,20 +85,19 @@ class AcWing827 {
         while(m-- > 0){
             String[] strs = br.readLine().split(" ");
             if (strs[0].equals("R")){
-                addTail(Integer.valueOf(strs[1]));
+                add(l[1],Integer.valueOf(strs[1]));
             }else if (strs[0].equals("D")) {
-                remove(Integer.valueOf(strs[1]));
+                remove(Integer.valueOf(strs[1])+1);
             }else if (strs[0].equals("L")) {
-                addHead(Integer.valueOf(strs[1]));
+                add(0, Integer.valueOf(strs[1]));
             }else if (strs[0].equals("IR")) {
-                add(Integer.valueOf(strs[1])-1, Integer.valueOf(strs[2]));
+                add(Integer.valueOf(strs[1])+1, Integer.valueOf(strs[2]));
             }else if (strs[0].equals("IL")) {
-                add(l[Integer.valueOf(strs[1])-1], Integer.valueOf(strs[2]));
+                add(l[Integer.valueOf(strs[1])+1], Integer.valueOf(strs[2]));
             }
         }
-        for (int i = head; i != tail; i=r[i]) {
+        for (int i = r[0]; i != 1; i=r[i]) {
             System.out.print(e[i] + " ");
         }
-        System.out.println(e[tail]);
     }
 }

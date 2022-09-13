@@ -9,6 +9,13 @@
             "name": "Launch AcWing827",
             "request": "launch",
             "mainClass": "linkedList.AcWing827",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch AcWing827",
+            "request": "launch",
+            "mainClass": "linkedList.AcWing827",
             "projectName": ".leetcode_c69e4f62"
         },
         {
