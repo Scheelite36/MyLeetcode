@@ -1,5 +1,9 @@
 package linkedList;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
  * 题目描述
 实现一个双链表，双链表初始为空，支持 5 种操作：
@@ -53,5 +57,68 @@ IR 2 2
 
  */
 class AcWing827 {
-    
+    static int[] e = new int[10000];
+    static int[] l = new int[10000];
+    static int[] r = new int[10000];
+    static int idx;
+    static int head;
+    static int tail;
+
+    static void add(int k, int x){
+        e[idx] = x;
+        l[r[idx]] = idx;
+        r[idx] = r[k];
+        r[k] = idx;
+        l[idx] = k;
+        idx++;
+    }
+
+    static void addHead(int x){
+        e[idx] = x;
+        r[idx] = head;
+        l[head] = idx;
+        head = idx;
+        idx++;
+    }
+
+    static void addTail(int x){
+        e[idx] = x;
+        l[idx] = tail;
+        r[tail] = idx;
+        tail = idx;
+        idx++;
+    }
+
+    static void remove(int k){
+        if (k==head){
+            head = r[k];
+        } else if(k==tail){
+            tail = l[k];
+        }else {
+            l[r[k]] = l[k];
+            r[l[k]] = r[k];
+        }
+    }
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int m = Integer.valueOf(br.readLine());
+        while(m-- > 0){
+            String[] strs = br.readLine().split(" ");
+            if (strs[0].equals("R")){
+                addTail(Integer.valueOf(strs[1]));
+            }else if (strs[0].equals("D")) {
+                remove(Integer.valueOf(strs[1]));
+            }else if (strs[0].equals("L")) {
+                addHead(Integer.valueOf(strs[1]));
+            }else if (strs[0].equals("IR")) {
+                add(Integer.valueOf(strs[1])-1, Integer.valueOf(strs[2]));
+            }else if (strs[0].equals("IL")) {
+                add(l[Integer.valueOf(strs[1])-1], Integer.valueOf(strs[2]));
+            }
+        }
+        for (int i = head; i != tail; i=r[i]) {
+            System.out.print(e[i] + " ");
+        }
+        System.out.println(e[tail]);
+    }
 }
