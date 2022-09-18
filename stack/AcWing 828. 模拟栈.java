@@ -1,4 +1,11 @@
 package stack;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 实现一个栈，栈初始为空，支持四种操作：
 
@@ -51,5 +58,39 @@ NO
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
  */
 class AcWing828 {
-    
+    static int[] stk = new int[10000];
+    static int idx;
+    static void push(int x){
+        stk[idx++] = x;
+    }
+    static int pop(){
+        return stk[--idx];
+    }
+    static boolean isEmpty(){
+        return idx == 0;
+    }
+    static int query(){
+        return stk[idx-1];
+    }
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int m = Integer.valueOf(br.readLine());
+        List<String> sout = new ArrayList<>();
+        while (m-- > 0){
+            String[] strs = br.readLine().split(" ");
+            if (strs[0].equals("query")){
+                sout.add(query()+"");
+            }else if (strs[0].equals("empty")){
+                String ans = isEmpty() ? "YES" : "NO";
+                sout.add(ans);
+            }else if (strs[0].equals("push")){
+                push(Integer.valueOf(strs[1]));
+            }else if (strs[0].equals("pop")){
+                pop();
+            }
+        }
+        for (String string : sout) {
+            System.out.println(string);
+        }
+    }
 }

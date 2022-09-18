@@ -6,6 +6,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch AcWing831",
+            "request": "launch",
+            "mainClass": "string.AcWing831",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch Acwing154",
+            "request": "launch",
+            "mainClass": "queue.Acwing154",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch AcWing830",
+            "request": "launch",
+            "mainClass": "stack.AcWing830",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch AcWing829",
+            "request": "launch",
+            "mainClass": "queue.AcWing829",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch AcWing828",
+            "request": "launch",
+            "mainClass": "stack.AcWing828",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
             "name": "Launch AcWing827",
             "request": "launch",
             "mainClass": "linkedList.AcWing827",
