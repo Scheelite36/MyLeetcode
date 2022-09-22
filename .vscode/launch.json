@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch MyLinkedList",
+            "request": "launch",
+            "mainClass": "linkedList.MyLinkedList",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
             "name": "Launch AcWing831",
             "request": "launch",
             "mainClass": "string.AcWing831",
