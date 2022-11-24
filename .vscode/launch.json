@@ -6,6 +6,188 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Solution207",
+            "request": "launch",
+            "mainClass": "searchMap.Solution207",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch Acwing850",
+            "request": "launch",
+            "mainClass": "searchMap.Acwing850",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch Acwing849",
+            "request": "launch",
+            "mainClass": "searchMap.Acwing849",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch 导师请吃火",
+            "request": "launch",
+            "mainClass": "dp.导师请吃火",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch Acwing848",
+            "request": "launch",
+            "mainClass": "searchMap.Acwing848",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch AcWing847",
+            "request": "launch",
+            "mainClass": "searchMap.AcWing847",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch Acwing888",
+            "request": "launch",
+            "mainClass": "searchMap.Acwing888",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch Acwing846",
+            "request": "launch",
+            "mainClass": "searchMap.Acwing846",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch Acwing844",
+            "request": "launch",
+            "mainClass": "searchMap.Acwing844",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch AcWing843",
+            "request": "launch",
+            "mainClass": "searchMap.AcWing843",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch AcWing156",
+            "request": "launch",
+            "mainClass": "hash.AcWing156",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch AcWing841",
+            "request": "launch",
+            "mainClass": "hash.AcWing841",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solution49",
+            "request": "launch",
+            "mainClass": "string.Solution49",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch AcWing840_1",
+            "request": "launch",
+            "mainClass": "hash.AcWing840_1",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch AcWing840",
+            "request": "launch",
+            "mainClass": "hash.AcWing840",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solution42_1",
+            "request": "launch",
+            "mainClass": "stack.Solution42_1",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch AcWing838",
+            "request": "launch",
+            "mainClass": "heap.AcWing838",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch HeapTemp",
+            "request": "launch",
+            "mainClass": "heap.HeapTemp",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch AcWing240",
+            "request": "launch",
+            "mainClass": "merge.AcWing240",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch AcWing837",
+            "request": "launch",
+            "mainClass": "merge.AcWing837",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch AcWing836",
+            "request": "launch",
+            "mainClass": "merge.AcWing836",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch Trie",
+            "request": "launch",
+            "mainClass": "trees.Trie",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch AcWing143",
+            "request": "launch",
+            "mainClass": "trees.AcWing143",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch AcWing835",
+            "request": "launch",
+            "mainClass": "trees.AcWing835",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch AcWing835",
+            "request": "launch",
+            "mainClass": "AcWing835",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch MyLinkedList2",
+            "request": "launch",
+            "mainClass": "linkedList.MyLinkedList2",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
             "name": "Launch MyLinkedList",
             "request": "launch",
             "mainClass": "linkedList.MyLinkedList",

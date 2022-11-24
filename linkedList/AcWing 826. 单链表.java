@@ -1,12 +1,8 @@
 package linkedList;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
-import java.io.IOError;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
-import javax.swing.text.StyledEditorKit;
 
 /**
  * 题目描述

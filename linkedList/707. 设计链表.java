@@ -1,5 +1,9 @@
 package linkedList;
 
+import java.util.List;
+
+import javax.sound.midi.MidiSystem;
+
 /**
  * 设计链表的实现。您可以选择使用单链表或双链表。单链表中的节点应该具有两个属性：val 和 next。val 是当前节点的值，next 是指向下一个节点的指针/引用。如果要使用双向链表，则还需要一个属性 prev 以指示链表中的上一个节点。假设链表中的所有节点都是
  * 0-index 的。
@@ -30,112 +34,153 @@ package linkedList;
  * 链接：https://leetcode.cn/problems/design-linked-list
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
+
+/**
+ * 链表方法
+ */
+class ListNode {
+    ListNode next;
+    int val;
+    ListNode(int val, ListNode next){
+        this.next = next;
+        this.val = val;
+    }
+    ListNode(){}
+}
+
 class MyLinkedList {
-    int[] l;
-    int[] next;
-    int idx = 1;
-    int head;
-    int tail;
+    private ListNode dummy = new ListNode();
+    private int cnt;
 
     public MyLinkedList() {
+        
+    }
+    
+    public int get(int index) {
+        if (index < 0 || index >= cnt) {
+            return -1;
+        }
+        ListNode t = dummy.next;
+        while(index-- > 0 && t != null){
+            t = t.next;
+        }
+        return t.val;
+    }
+    
+    public void addAtHead(int val) {
+        addAtIndex(0, val);;
+    }
+    
+    public void addAtTail(int val) {
+        addAtIndex(cnt, val);
+    }
+    
+    public void addAtIndex(int index, int val) {
+        if (index > cnt) {
+            return;
+        }
+        ListNode t = dummy;
+        while(index-- >0){
+            t = t.next;
+        }
+        ListNode n = new ListNode(val, t.next);
+        t.next = n;
+        cnt++;
+    }
+    
+    public void deleteAtIndex(int index) {
+        if (index < 0 || index >= cnt) {
+            return;
+        }
+        ListNode t = dummy;
+        while(index-- >0){
+            t = t.next;
+        }
+        t.next = t.next == null ? null : t.next.next;
+        cnt--;
+    }
+}
+/**
+ * 数组方法
+ */
+class MyLinkedList2 {
+    int[] l;
+    int[] next;
+    int idx;
+    int head;
+    int cnt;
+
+    public MyLinkedList2() {
         l = new int[1000];
         next = new int[1000];
     }
     
     public int get(int index) {
-        int i = head;
-        while(index-- > 0 &&  i != tail){
-            i = next[i];
+        if (index < 0 || index >= cnt){
+            return -1;
         }
-        return index > 0 ? -1 : l[i];
+        int t = head;
+        while (index-- > 0){
+            t = next[t];
+        }
+        return l[t];
     }
     
     public void addAtHead(int val) {
-        // 头节点为0 说明链表没有值
-        if (head == 0){
-            tail = idx;
-        }
         l[idx] = val;
         next[idx] = head;
         head = idx;
         idx++;
+        cnt++;
     }
     
     public void addAtTail(int val) {
-        if (tail == 0){
-            head = idx;
-            addAtHead(val);
-            return;
-        }
-        l[idx] = val;
-        next[tail] = idx;
-        tail = idx;
-        idx++;
+        addAtIndex(cnt, val);
     }
     
     public void addAtIndex(int index, int val) {
-        // 如果加的是头节点
-        if (index == 0) {
+        if (index < 0 || index > cnt){
+            return;
+        }
+        if (index == 0){
             addAtHead(val);
             return;
         }
-
-        int i = head;
-        while(--index>0 && tail != i){
-            i = next[i];
+        int t = head;
+        while(--index > 0){
+            t = next[t];
         }
-        // 如果加的是尾巴
-        if (tail == i){
-            addAtTail(val);
-            return;
-        }
-        // 中间节点
         l[idx] = val;
-        next[idx] = next[i];
-        next[i] = idx;
+        next[idx] = next[t];
+        next[t] = idx;
         idx++;
+        cnt++;
     }
     
     public void deleteAtIndex(int index) {
-        // 删的是头部
+        if (index < 0 || index >= cnt){
+            return;
+        }
         if (index == 0){
-            // l[head] = 0;
             head = next[head];
-            return;
+        }else{
+            int t = head;
+            while(--index > 0){
+                t = next[t];
+            }
+            next[t] = next[next[t]];
         }
-        int i = head;
-        while(--index > 0 && tail != i){
-            i = next[i];
-        }
-        // 删的是尾巴
-        if (i == tail){
-            tail = i;
-            return;
-        }
-        // 删其他
-        next[i] = next[next[i]];
+        cnt--;
     }
     public static void main(String[] args) {
-        MyLinkedList m = new MyLinkedList();
-        // m.addAtHead(1);
-        // m.addAtTail(3);
-        // m.addAtIndex(1, 2);
-        // System.out.println(m.get(1));
-        // m.deleteAtIndex(1);
-        // System.out.println(m.get(1));
-
-        m.addAtHead(5);
+        MyLinkedList2 m = new MyLinkedList2();
+        m.addAtHead(1);
+        m.addAtTail(3);
         m.addAtIndex(1, 2);
-        System.out.println(m.get(1));
-
-        // m.addAtHead(4);
-        // m.get(1);
-        // m.addAtHead(1);
-        // m.addAtHead(5);
-        // m.deleteAtIndex(3);
-        // m.addAtHead(7);
+        m.get(1);
     }
 }
+
 
 /**
  * Your MyLinkedList object will be instantiated and called as such:
