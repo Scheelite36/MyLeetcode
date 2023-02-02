@@ -6,6 +6,76 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Solution785",
+            "request": "launch",
+            "mainClass": "searchMap.Solution785",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch Acwing860",
+            "request": "launch",
+            "mainClass": "searchMap.Acwing860",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solution1489",
+            "request": "launch",
+            "mainClass": "searchMap.Solution1489",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch Acwing859",
+            "request": "launch",
+            "mainClass": "searchMap.Acwing859",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch AcWing858",
+            "request": "launch",
+            "mainClass": "searchMap.AcWing858",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solution2203",
+            "request": "launch",
+            "mainClass": "searchMap.Solution2203",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch Acwing854",
+            "request": "launch",
+            "mainClass": "searchMap.Acwing854",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch Acwing852",
+            "request": "launch",
+            "mainClass": "searchMap.Acwing852",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch AcWing851",
+            "request": "launch",
+            "mainClass": "searchMap.AcWing851",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
+            "name": "Launch Acwing853",
+            "request": "launch",
+            "mainClass": "searchMap.Acwing853",
+            "projectName": ".leetcode_f6e66e12"
+        },
+        {
+            "type": "java",
             "name": "Launch Solution207",
             "request": "launch",
             "mainClass": "searchMap.Solution207",

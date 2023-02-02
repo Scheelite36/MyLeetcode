@@ -3,18 +3,59 @@ import java.util.Collections;
 import java.util.Comparator;
 
 public class Test {
+    public int[] sortArray(int[] nums) {
+        // mergeSort(nums, 0, nums.length - 1);
+        quickSort(nums, 0, nums.length-1);
+        return nums;
+    }
+
+    public void mergeSort(int[] nums, int l, int r) {
+        if (l >= r)
+            return;
+        int mid = l + r >> 1;
+        mergeSort(nums, l, mid);
+        mergeSort(nums, mid + 1, r);
+        int k = 0, i = l, j = mid + 1;
+        int[] temp = new int[r - l + 1];
+        while (i <= mid && j <= r) {
+            if (nums[i] < nums[j]) {
+                temp[k++] = nums[i++];
+            } else {
+                temp[k++] = nums[j++];
+            }
+        }
+        while (i <= mid) {
+            temp[k++] = nums[i++];
+        }
+        while (j <= r) {
+            temp[k++] = nums[j++];
+        }
+        for (i = l, j = 0; i <= r; i++, j++) {
+            nums[i] = temp[j];
+        }
+    }
+
+    public void quickSort(int[] nums, int l, int r) {
+        if (l >= r)
+            return;
+        int x = nums[l], i = l - 1, j = r + 1;
+        while (i < j) {
+            while (nums[++i] < x) {
+            }
+            while (nums[--j] > x) {
+            }
+            if (i < j) {
+                int temp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = temp;
+            }
+        }
+        quickSort(nums, l, j);
+        quickSort(nums, j + 1, r);
+    }
 
     public static void main(String[] args) {
-        int[][] a = new int[][] { new int[] { 1, 3 }, new int[] { 1, 2 }, new int[] { 3, 5 } };
-        Comparator<int[]> c = new Comparator<int[]>() {
-            @Override
-            public int compare(int[] a, int[] b) {
-                return a[0] == b[0] ? a[1] - b[1] : a[0] - b[0];
-            }
-        };
-        Collections.sort(Arrays.asList(a), c);
-        for (int[] is : a) {
-            System.out.println(is[0] + " " + is[1]);
-        }
+        Test t = new Test();
+        t.sortArray(new int[] { 5, 1, 2, 6, 5, 2, 1 });
     }
 }
