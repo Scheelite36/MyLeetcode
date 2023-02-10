@@ -37,7 +37,7 @@ class Acwing860 {
     static int idx = 0;
     static Integer[] color = new Integer[N];
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {  
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             int[] line = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::valueOf).toArray();
             int n = line[0];
